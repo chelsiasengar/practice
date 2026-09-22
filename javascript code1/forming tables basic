@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="firstscript.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="top100">
+        <div class="inline">
+            <div>
+                Car number:
+            </div>
+            <div>
+                <input id="numb1">
+            </div>
+            <div>
+                Date:
+            </div>
+            <div>
+                <input id="date1" type="date">
+            </div>
+            
+            <div class="t3">
+                <button onclick="SaveVisit()">Save</button>
+            </div>
+        </div>
+        <div class="inline">
+            <table id="tab1"></table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+style.css
+
+.top100 {
+    top:100px;
+}
+.t3{
+    margin-top: 20px;
+}
+.inline{
+    display: inline-block;
+}
+td,th{
+    border: 2px solid black;
+}
+
+
+
+
+firtscript.js
+
+
+let carCollection = [];
+const headers = "<tr><th>Car number</th><th>Date</th></tr>"
+function SaveVisit() {
+    let t = document.getElementById("tab1");
+    let inp2 = document.getElementById("date1");
+    let inp1 = document.getElementById("numb1");
+    if (inp1 != null && inp1.value != null && inp2 != null && inp2.valueAsDate != null) {
+        carCollection.push({
+            carNumb: inp1.value,
+            date: inp2.valueAsDate
+        });
+    }
+
+    if (t != null) {
+        let table1 = headers;
+        if (carCollection.length > 0) {
+            for (let i = 0; i < carCollection.length; i++) {
+                table1 += "<tr><td>" + carCollection[i].carNumb + "</td><td>" + carCollection[i].date.toISOString() + "</td></tr>";
+            }
+        }
+        t.innerHTML = table1;
+    }
+}
+
+
