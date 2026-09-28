@@ -51,3 +51,33 @@ let car = [];
 car.push("abcsfdd");
 car.push("cvvdvdvfbfb");
 console.log(car);
+
+
+
+
+objects:-
+-------
+
+-----------js---------
+
+let car = {
+    carNumb: "ABC123",
+    isVip: true
+};
+
+console.log(car.carNumb)
+console.log(car.isVip)
+
+let carCollection = [];
+
+carCollection.push( {
+    carNumb: "ABC123",
+    isVip: true
+});
+
+carCollection.push( {
+    carNumb: "aseewfe1223",
+    isVip: false
+});
+
+console.log(carCollection[1].carNumb);
