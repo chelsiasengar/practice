@@ -1,0 +1,45 @@
+using System;
+
+namespace DelegateRepeat
+{
+    internal class Program
+    {
+        delegate int Operation(int a, int b);
+        delegate void print(string message);
+
+        static void Main(string[] args)
+        {
+            Operation op = Add;
+            var result = op(2, 3);
+            var pureResult = Add(2, 3);
+
+            Console.WriteLine(result + "vs" + pureResult);
+
+            print pr = name;
+            pr += name;
+
+            pr("i have a test today");
+
+            var i = new hnnn();
+            i.Add();
+            i.Add();
+            i.Add();
+            i.Add();
+
+            Console.ReadKey();
+        }
+        private static void OnLimitReached(string message)
+        {
+            Console.WriteLine(message);
+        }
+        static void name(string x)
+        {
+            Console.WriteLine(x);
+        }
+
+        static int Add(int a, int b)
+        {
+            return a + b;
+        }
+    }
+}
