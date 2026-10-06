@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter text: ");
+        string text = Console.ReadLine();
+
+        text = text.ToLower();
+
+        Dictionary<char, int> letters = new Dictionary<char, int>();
+
+        foreach (char c in text)
+        {
+            if (char.IsLetter(c))
+            {
+                if (letters.ContainsKey(c))
+                {
+                    letters[c]++;
+                }
+                else
+                {
+                    letters.Add(c, 1);
+                }
+            }
+        }
+
+        Console.WriteLine("\nResult:");
+
+        foreach (var item in letters)
+        {
+            Console.WriteLine(item.Key + ": " + item.Value);
+        }
+        Console.ReadKey();
+    }
+}
+
+
